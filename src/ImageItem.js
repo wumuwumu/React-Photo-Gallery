@@ -7,13 +7,14 @@ import './index.css'
 export default class ImageItem extends Component {
     constructor(props) {
         super(props)
-        this.imageHandler = new Image()
-        this.imageHandler.addEventListener('load', this.onImageLoad)
+        
         this.state = { image: null }
     }
 
     componentDidMount() {
         const { srcPrefix, src } = this.props
+        this.imageHandler = new Image();
+        this.imageHandler.addEventListener("load", this.onImageLoad);
         this.imageHandler.src = combineUrlPath(srcPrefix, src)
     }
 
